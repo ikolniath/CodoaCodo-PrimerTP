@@ -1,0 +1,104 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Bellota Text', cursive;
+    background-color: #f5f5f5; /* Color de fondo */
+}
+
+header {
+    background-color: #e7cdf9; /* Color de encabezado (violeta) */
+    color: #fff;
+    font-size: 18px;
+    align-items: center;
+    padding: 2px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas de igual tamaño */
+    gap: 20px; /* Espacio entre las columnas */
+}
+
+.column-header-i img {
+    margin-left: 10px;
+}
+
+.column-header-i img,
+.column-header-i h1 {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px; /* Ajusta el margen entre la imagen y el título según tus preferencias */
+}
+
+.column-header-d {
+    text-align: right;
+    margin-right: 15px;
+}
+
+.logo {
+    max-width: 50px;
+    margin-right: 20px;
+}
+
+h1 {
+    margin: 0;
+    color: #fff;
+    font-size: 18px;
+}
+
+.header-image {
+    width: 100%;
+    /*height: 200px;*/
+    overflow: hidden;
+    display: block;
+}
+
+nav {
+    background-color: #e7cdf9; /* Color de la barra de navegación (violeta) */
+    color: #fff;
+    text-align: center;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    transition: color 0.3s; /* Transición para el cambio de color al pasar el mouse */
+}
+
+nav a:hover {
+    color: #3b005b; /* Cambiar el color al pasar el mouse */
+}
+
+.medio{
+    background-color: #e7cdf9; /* Color de la barra de navegación (rosaceo) */
+    padding: 15px;
+}
+
+.main-content {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    background-color: #e7cdf9;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.column {
+    flex: 1;
+}
+
+.logo-footer {
+    max-width: 100px;
+    margin-right: 20px;
+}
+/*
+.footer-info {
+    margin-top: 20px;
+}*/

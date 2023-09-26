@@ -1,0 +1,30 @@
+.nosotros {
+    background-color: #fff; /* Color de fondo */
+}
+
+.main-content-title {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+}
+
+h2 {
+    margin: 0;
+    color: #2E5B6D;
+    font-size: 26px;
+}
+
+.main-content-nosotros {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas de igual tamaño */
+    gap: 20px; /* Espacio entre las columnas */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.cuerpo {
+    /* Estilos personalizados para las columnas del contenido principal */
+    padding: 20px;
+}
