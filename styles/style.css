@@ -102,3 +102,14 @@ footer {
 .footer-info {
     margin-top: 20px;
 }*/
+
+.contenedor-navegador {
+    display: flex;
+    flex-wrap: wrap; 
+  }
+
+.contenedor-navegador > * {
+    margin: 10px;
+    flex: 5; /* Espacio entre los items */
+  }
+  
