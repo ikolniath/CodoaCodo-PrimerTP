@@ -103,13 +103,23 @@ footer {
     margin-top: 20px;
 }*/
 
-.contenedor-navegador {
+.contenedor-navegador-header {
     display: flex;
     flex-wrap: wrap; 
+    text-align: center;
   }
 
-.contenedor-navegador > * {
+.contenedor-navegador-header > * {
     margin: 10px;
     flex: 5; /* Espacio entre los items */
   }
+
+  .contenedor-navegador-footer {
+    display: inline;
+    margin-right: 35px;
+    margin-left: 10px;
+    
+  }
+
+
   
