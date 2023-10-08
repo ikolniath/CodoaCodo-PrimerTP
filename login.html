@@ -6,6 +6,7 @@
 
     <!-- Incluimos los archivos css-->
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/style_contacto.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
     <!-- Incluimos los archivos de tipos de fuentes-->
@@ -20,7 +21,7 @@
     
 </head>
 
-    <body>
+    <body class="contacto">
         <header>
             <!-- Contenido de la primera columna del header: logo de la veterinaria-->
             <div class="column-header-i">
@@ -49,19 +50,48 @@
         <div class="medio">
 
         </div>
-    
-        <div class="main-content">
-            <!-- Contenido de la página principal (index.html) -->
-            <h2>¡Bienvenido a Veterinaria Mi Mascota!</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...</p>
+        
+         <!-- Contenido de la página contacto (contacto.html) -->
+         <div class="main-content-title">
+            <h2></h2>
         </div>
-        <div class="main-video">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/rF21MHG0TvU?si=4kcZRXO_0GtucBO4" 
-            title="YouTube video player" frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-             allowfullscreen>
-            
-            </iframe>
+
+        <div class="main-content-contacto">
+            <div class="container" >
+                <h2>Inicio de sesion:</h2>
+                <form>
+                    <table>
+                        <tbody><tr>
+                            <td><span>Usuario</span></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" required=""></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td><span >Contraseña</span></td>
+                        </tr>
+                        <tr>
+                            <td><input type="password" maxlength="25" required=""></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td><div><div style="width: 304px; height: 78px;"><div><iframe title="reCAPTCHA" width="304" height="78" role="presentation" name="a-xv6zr9ez3ln5" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LfXRRsUAAAAAEApnVwrtQ7aFprn4naEcc05AZUR&amp;co=aHR0cHM6Ly93d3cud2FybWFuZS5jb206NDQz&amp;hl=en&amp;v=lLirU0na9roYU3wDDisGJEVT&amp;theme=dark&amp;size=normal&amp;cb=qszyo1fqc1pq"></iframe></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;"></iframe></div></td>
+                        </tr>
+                    </tbody></table>
+                        
+                       
+                        
+                        <div class="form-button">
+                            <button type="submit">Enviar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     
         <footer>
