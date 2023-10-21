@@ -1,4 +1,4 @@
-![image](http://127.0.0.1:3000/CodoaCodo-PrimerTP/index.html)
+![image](./images/../img/PaginaVeterinariaLocky.png)
 
 # Python Full Stack Developer 
 
@@ -21,9 +21,6 @@ Trabajamos sobre el primer proyecto con HTML, Css y Java Script
 :small_orange_diamond: Gonzalo, Riga
 
 :small_orange_diamond: Pablo, Medina
-
-
-
 
 
 
