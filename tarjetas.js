@@ -1,27 +1,42 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     const tarjetasContainer = document.getElementById('tarjetas-container');
     const popupContainer = document.getElementById('popup-container');
 
     const cargarDatos = async () => {
-        const response = await fetch('data/datos.json');
-        const datos = await response.json();
+        const datosResponse = await fetch('data/datos.json');
+        const datos = await datosResponse.json();
         return datos;
     }
 
-    const mostrarTarjetas = (datos) => {
-        datos.forEach((dato, index) => {
-            const { foto, nombre, apellido, especializacion } = dato;
+    const traerDatosAPI = async () => {
+        try {
+            const response = await fetch('https://randomuser.me/api');
+            const data = await response.json();
+            return data.results[0];
+        } catch (error) {
+            console.error('Error al obtener datos de la API:', error);
+            return null;
+        }
+    }
+
+    const mostrarTarjetas = async () => {
+        const datos = await cargarDatos();
+        const randomUsers = await Promise.all([traerDatosAPI(), traerDatosAPI(), traerDatosAPI()]);
+        
+        randomUsers.forEach((randomUser, index) => {
+            const { especializacion, acerca } = datos[index];
+            const { picture, name } = randomUser;
+            const { first, last } = name;
 
             const tarjeta = document.createElement('div');
             tarjeta.classList.add('tarjeta');
-            tarjeta.dataset.index = index;
 
             const fotoElement = document.createElement('div');
             fotoElement.classList.add('foto');
-            fotoElement.style.backgroundImage = `url(${foto})`;
+            fotoElement.style.backgroundImage = `url(${picture.large})`;
 
             const nombreElement = document.createElement('h2');
-            nombreElement.textContent = `${nombre} ${apellido}`;
+            nombreElement.textContent = `${first} ${last}`;
 
             const especializacionElement = document.createElement('p');
             especializacionElement.textContent = `${especializacion}`;
@@ -33,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
             tarjetasContainer.appendChild(tarjeta);
 
             tarjeta.addEventListener('click', () => {
-                mostrarPopup(datos[index]);
+                mostrarPopup({ nombre: first, apellido: last, especializacion, acerca, fotoAPI: picture.large });
             });
         });
     }
@@ -41,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const mostrarPopup = (info) => {
         const popupContent = `
             <div class="tarjeta">
-                <div class="foto"><img src="${info.foto}" alt="${info.nombre} ${info.apellido}" class="foto"></div>
+                <div class="foto"><img src="${info.fotoAPI}" alt="${info.nombre} ${info.apellido}" class="foto"></div>
                 <h2>${info.nombre} ${info.apellido}</h2>
                 <p>${info.especializacion}</p>
                 <p>${info.acerca}</p>
@@ -52,9 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
         popupContainer.style.display = 'block';
     }
 
-    cargarDatos().then((datos) => {
-        mostrarTarjetas(datos);
-    });
+    mostrarTarjetas();
 
     popupContainer.addEventListener('click', (event) => {
         if (event.target === popupContainer) {
@@ -62,6 +75,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+
+
+
 
 
 

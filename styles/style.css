@@ -173,4 +173,9 @@ footer {
 }
 
 
-  
+.especialistas{
+    display:flex;
+    margin-left: 550px;
+    text-align: center;
+
+}
