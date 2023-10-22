@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="foto"><img src="${info.foto}" alt="${info.nombre} ${info.apellido}" class="foto"></div>
                 <h2>${info.nombre} ${info.apellido}</h2>
                 <p>${info.especializacion}</p>
-                <p>Acerca: ${info.acerca}</p>
+                <p>${info.acerca}</p>
             </div>
         `;
 
