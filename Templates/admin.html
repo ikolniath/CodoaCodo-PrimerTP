@@ -1,0 +1,40 @@
+{% extends 'index_app.html' %} {% block content %}
+<!-- Contenido de la página contacto (contacto.html) -->
+<div class="main-content">
+	<h2>Administración</h2>
+	<div class="card-container">
+		<div class="card-grid">
+			<div class="card">
+				<div class="card-header">
+					<h3><a href="{{ url_for('veterinarios') }}">Veterinarios</a></h3>
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-header">
+					<h3><a href="{{ url_for('sucursales') }}">Sucursales</a></h3>
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-header">
+					<h3><a href="{{ url_for('turnos') }}">Turnos</a></h3>
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-header">
+					<h3><a href="{{ url_for('mascotas') }}">Mascotas</a></h3>
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-header">
+					<h3><a href="{{ url_for('users') }}">Usuarios</a></h3>
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-header">
+					<h3><a href="{{ url_for('especialidades') }}">Especialidades</a></h3>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

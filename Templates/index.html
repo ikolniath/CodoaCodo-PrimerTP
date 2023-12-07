@@ -1,0 +1,109 @@
+{% extends 'index_app.html' %} {% block content %}
+<!-- Contenedor principal -->
+<div class="contenedor">
+  <!-- Sección de bienvenida -->
+  <section class="hero">
+    <h2>Bienvenidos a Veterinaria Locky</h2>
+    <p>
+      Brindamos cuidado y amor a tus mascotas. Estamos aquí para mantener a tu
+      amigo peludo sano y feliz.
+    </p>
+  </section>
+  <!-- Articulo de bienvenida y carta de presentación -->
+  <article class="articulo">
+    <div class="presentacion-content">
+      <p>Queridos amigos y amantes de los animales:</p>
+      <p>
+        Es un honor y un privilegio darles la más cordial bienvenida a la
+        Veterinaria Locky. En este cálido rincón de amor y cuidado, nuestra
+        misión es simple pero profunda: mantener a nuestras mascotas sanas,
+        felices y llenas de vida.
+      </p>
+      <p>
+        En este espacio, no solo encontrarán médicos y personal altamente
+        capacitado, sino también corazones apasionados que entienden la
+        importancia de los lazos que compartimos con nuestros compañeros
+        peludos. Cada ladrido, ronroneo o mirada curiosa cuenta una historia, y
+        estamos aquí para ser parte de esos momentos, para velar por su salud y
+        bienestar con dedicación inquebrantable.
+      </p>
+      <p>
+        En Veterinaria Mi Mascota, no solo somos un equipo, sino una familia.
+        Una familia que se preocupa profundamente por cada mascota que entra por
+        nuestras puertas y por cada tutor que confía en nosotros. Estamos aquí
+        para responder a sus preguntas, calmar sus preocupaciones y celebrar
+        cada pequeña victoria en la vida de sus adorables amigos de cuatro
+        patas.
+      </p>
+      <p>
+        Así que, una vez más, les damos las gracias por confiar en nosotros con
+        lo más preciado que tienen: sus amadas mascotas. Estamos aquí para
+        servirles, para aprender de ustedes y, sobre todo, para amar a sus
+        mascotas tanto como ustedes lo hacen.
+      </p>
+      <p>¡Gracias por ser parte de nuestra familia!</p>
+      <p>Con gratitud y cariño,</p>
+      <p>Veterinaria Locky</p>
+    </div>
+  </article>
+  <!-- Sección de tarjetas de presentación y recomendaciones -->
+  <section class="presentacion">
+    <div class="tarjetas">
+      <!-- Tarjeta 1 -->
+      <div class="card">
+        <h2>Nuestra Veterinaria</h2>
+        <div class="column">
+          <span>
+            <img
+              src="{{ url_for('static', filename='img/veterinaria.jpg') }}"
+              alt="Veterinaria"
+              width="50%" />
+          </span>
+          <p>
+            Cuenta con atención clínica e internación las 24 horas del día,
+            ademas de quirófano, farmacia, pet-shop y atención de
+            especialidades. Todo lo que tu mascota necesita, en un solo lugar.
+          </p>
+        </div>
+      </div>
+      <!-- Tarjeta 2 -->
+      <div class="card">
+        <h2>Para tener en cuenta</h2>
+        <iframe
+          src="https://www.youtube.com/embed/4o5lx4_55oo?si=gbCAGPe5Fw8vFdzm"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+        <br />
+        <p>
+          Porque su salud es importante para nosotros, te dejamos un video sobre
+          las enfermedades que pueden afectar la salud de nuestros peludos.
+        </p>
+      </div>
+      <!-- Tarjeta 3 -->
+      <div class="card">
+        <h2>Blogs de interés</h2>
+        <div class="column">
+          <span>
+            <img
+              src="{{ url_for('static', filename='img/alimentacion.jpg') }}"
+              alt="Alimentación"
+              width="50%" />
+          </span>
+          <p>
+            Puede resultar abrumador evaluar el mejor producto para alimentar a
+            nuestras mascotas, por eso te compartimos este
+            <a
+              href="https://monicagonzaleztovar.com/blog/"
+              target="_blank"
+              >Blog</a
+            >
+            con mucha info.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+{% endblock %}

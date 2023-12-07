@@ -1,0 +1,88 @@
+{%extends 'index_app.html' %} {%block content %}
+<div class="main-content">
+    <h2>Registrar mascota</h2>
+    <div class="card-container">
+        <div class="container mt-5">
+            <form action="{{ url_for('addMascotas') }}" method="POST">
+                <div class="form-group">
+                    <label>nombre mascota</label>
+                    <input type="text" class="form-control mb-3" name="pet_name">
+                </div>
+                <div class="form-group">
+                    <label>Raza</label>
+                    <input type="text" class="form-control mb-3" name="pet_breed">
+                </div>
+                <div class="form-group">
+                    <label>edad</label>
+                    <input type="text" class="form-control mb-3" name="ago">
+                </div>
+                <div class="form-group">
+                    <label>color pelo</label>
+                    <input type="text" class="form-control mb-3" name="hair_color">
+                </div>
+                <button class="btn btn-primary mb-3 mt-4" type="submit"> Guardar</button>
+            </form>
+            <table class="table table-bordered">
+                <trhead>
+                    <th scope="col">Registro</th>
+                    <th scope="col">Nombre de Mascota</th>
+                    <th scope="col">Raza</th>
+                    <th scope="col">Edad</th>
+                    <th scope="col">Color de pelaje</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    
+                </trhead>
+            
+                <tbody>
+                    {% for d in data %}
+                    <tr>
+                        <td>{{d.pet_id}}</td>
+                        <td>{{d.pet_name}}</td>
+                        <td>{{d.pet_breed}}</td>
+                        <td>{{d.ago}}</td>
+                        <td>{{d.hair_color}}</td>
+                        <td><button class="btn btn-primary btn-sm" id="btn-edit{{d.pet_id}}" data-bs-toggle="modal" data-bs-target="#modal{{d.pet_id}}">Editar</button></td>
+                        <td><a href="{{url_for('delete_mascotas',pet_id=d.pet_id)}}" class="btn btn-danger btn-sm">Delete</a></td>
+                    </tr>
+                    <!--ventana modal-->
+                    <div class="modal fade" id="modal{{d.pet_id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">{{d.pet_name}}</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="{{url_for('edit_mascotas', pet_id=d.pet_id)}}" method="post">
+                                    <div class="col">
+                                        <label>Nombre Mascota</label>
+                                        <input type="text" class="form-control mb-3" name="pet_name" value="{{d.pet_name}}">
+                                    </div>
+                                    <div class="col">
+                                        <label>Raza</label>
+                                        <input type="text" class="form-control mb-3" name="pet_breed" value="{{d.pet_breed}}">
+                                    </div>
+                                    <div class="col">
+                                        <label>Edad</label>
+                                        <input type="text" class="form-control mb-3" name="ago" value="{{d.ago}}">
+                                    </div>
+                                    <div class="col">
+                                        <label>Color de Pelo</label>
+                                        <input type="text" class="form-control mb-3" name="hair_color" value="{{d.hair_color}}">
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        </div>
+
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{%endblock%}

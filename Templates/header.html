@@ -1,0 +1,67 @@
+<!-- Header del sitio -->
+<header class="encabezado">
+	<!-- Contenido de la primera columna del header: logo de la veterinaria-->
+	<div class="column-header-i">
+		<img
+			src="{{ url_for('static', filename='img/logo5.png')}}"
+			alt="Logo de
+    Veterinaria Locky"
+			class="logo" />
+		<h1 style="font-size: x-large">Veterinaria Locky</h1>
+	</div>
+	<!-- Contenido de la segunda columna del header: nav-->
+	<div class="column-header">
+		<nav>
+			<nav>
+				<a href="{{ url_for('index') }}">Inicio</a> |
+				<a href="{{ url_for('servicios') }}">Servicios</a> |
+				<a href="{{ url_for('nosotros') }}">Nosotros</a> |
+				<a href="{{ url_for('contacto') }}">Contacto</a>
+				{% if 'logged_in' in session %} {% if session['role'] == '2' %} |
+				<a href="{{ url_for('turnos') }}">turnos</a> {% elif session['role'] ==
+				'1' %} | <a href="{{ url_for('admin') }}">Admin</a> {% endif %} {% endif
+				%}
+			</nav>
+		</nav>
+	</div>
+	<!-- Contenido de la tercera columna del header: login-->
+	<div class="column-header-d">
+		<nav
+			>{% if 'logged_in' in session %} <i class="fa fa-sign-in-alt"></i
+			><a href="{{ url_for('logout') }}">Logout</a>
+			{% else %}
+			<i class="fa fa-sign-in-alt"></i
+			><a href="{{ url_for('login') }}">Login</a>
+			{% endif %}
+		</nav>
+	</div>
+</header>
+<!-- Carrusel donde lo colocamos dentro de un DIV y lo hacemos con el formato de lista -->
+<div class="carousel">
+	<ul class="images">
+		<li>
+			<img
+				src="{{ url_for('static', filename= 'img/mascotas3-3.jpg') }}"
+				alt="Img 1"
+				class="active" />
+		</li>
+		<li>
+			<img
+				src="{{ url_for('static', filename='img/mascotas3-2.jpg')}}"
+				alt="Img 2" />
+		</li>
+		<li>
+			<img
+				src="{{ url_for('static', filename='img/mascotas.jpg')}}"
+				alt="Img 3" />
+		</li>
+		<li>
+			<img
+				src="{{ url_for('static', filename='img/mascotas3-1.jpg')}}"
+				alt="Img 4" />
+		</li>
+	</ul>
+	<script src="{{ url_for('static', filename='js/carousel.js')}}"></script>
+</div>
+<!-- Sección divisoria -->
+<div class="medio"></div>

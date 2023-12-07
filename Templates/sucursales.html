@@ -1,0 +1,71 @@
+{%extends 'index_app.html'%} {%block content %}
+<div class="main-content">
+    <h2>Registro Sucursal</h2>
+    <div class="card-container">
+        <div class="container mt-5">
+            <form action="{{ url_for('addSucursal') }}" method="POST">
+                <div class="form-group">
+                    <label for="adress">Direccion Sucursal</label>
+                    <input type="text" class="form-control" id="adress" name="adress">
+                </div>
+                <div class="form-group">
+                    <label>Ciudad</label>
+                    <input type="text" class="form-control" name="city">
+                </div>
+                <button class="btn btn-primary" type="submit">Guardar</button>
+            </form>
+            <div class="container">
+                <table class="table table-bordered">
+                    <trhead>
+                        <th scope="col">ID</th>
+                        <th scope="col">Direccion</th>
+                        <th scope="col">Ciudad</th>
+                        <th></th>
+                        <th></th>
+                    </trhead>
+                
+                    <tbody>
+                        {% for d in data %}
+                        <tr>
+                            <td>{{d.sucursal_id}}</td>
+                            <td>{{d.adress}}</td>
+                            <td>{{d.city}}</td>
+
+                            <td><button class="btn btn-primary btn-sm" id="btn-edit{{sucursal_id}}" data-bs-toggle="modal" data-bs-target="#modal{{sucursal_id}}">Editar</button>
+                            </td>
+                            <td><a href="{{url_for('delete_sucursal',sucursal_id=d.sucursal_id)}}" class="btn btn-danger btn-sm">Delete</a>
+                            </td>
+                        </tr>
+                        <!--ventana modal-->
+                        <div class="modal fade" id="modal{{sucursal_id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">{{d.adress}}</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="{{url_for('edit_sucursal', sucursal_id=d.sucursal_id)}}" method="post">
+                                        <div class="col">
+                                            <label>Direccion </label>
+                                            <input type="text" class="form-control mb-3" name="adress" value="{{d.adress}}">
+                                        </div> 
+                                        <div class="col">
+                                            <label>Ciudad </label>
+                                            <input type="text" class="form-control mb-3" name="city" value="{{d.city}}">
+                                        </div>                               
+                                        <div class="modal-footer">                              
+                                            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                                        </div>
+                                    </form>
+                            </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock%}

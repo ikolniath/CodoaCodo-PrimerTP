@@ -1,0 +1,60 @@
+{%extends 'index_app.html' %} {%block content %}
+<div class="main-content">
+    <h2>Registro Especialidades</h2>
+    <div class="card-container">
+        <div class="container mt-5">
+            <form action="{{ url_for('addEspecialidad') }}" method="POST">
+                <div class="form-group">
+                    <label>Nombre Especialidad</label>
+                    <input type="text" class="form-control mb-3" name="nombreEspecialidad">
+                </div>
+                <button class="btn btn-primary mb-3 mt-4" type="submit"> Guardar</button>
+            </form>
+            <table class="table table-bordered">
+                <trhead>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre Especialidad</th>
+                    <th></th>
+                    <th></th>
+                    
+                </trhead>
+            
+            <tbody>
+                {% for d in data %}
+                <tr>
+                    <td>{{d.especialidad_id}}</td>
+                    <td>{{d.nombreEspecialidad}}</td>
+
+                    <td><button class="btn btn-primary btn-sm" id="btn-edit{{d.especialidad_id}}" data-bs-toggle="modal" data-bs-target="#modal{{d.especialidad_id}}">Editar</button></td>
+                    <td><a href="{{url_for('delete_especialidades',especialidad_id=d.especialidad_id)}}" class="btn btn-danger btn-sm">Delete</a></td>
+                </tr>
+                <!--ventana modal-->
+                <div class="modal fade" id="modal{{d.especialidad_id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">{{d.nombreEspecialidad}}</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="{{url_for('edit_especialidades', especialidad_id=d.especialidad_id)}}" method="post">
+                                <div class="col">
+                                    <label>Nombre Especialidad</label>
+                                    <input type="text" class="form-control mb-3" name="nombreEspecialidad" value="{{d.nombreEspecialidad}}">
+                                </div>                               
+                                <div class="modal-footer">
+                                
+                                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                                </div>
+                            </form>
+                    </div>
+                    </div>
+                </div>
+
+                {% endfor %}
+            </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,409 @@
+.contenedor {
+	display: grid;
+	grid-template: repeat(5, auto) / 100%;
+	grid-template-areas:
+		'encabezado'
+		'carrusel'
+		'bienvenida'
+		'articulo'
+		'presentacion'
+		'pie';
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Bellota Text', cursive;
+	background-color: #fff; /* Color de fondo */
+}
+
+.encabezado {
+	background-color: #e7cdf9; /* Color de encabezado violeta pastel */
+	color: #fff;
+	font-size: 18px;
+	align-items: center;
+	padding: 2px;
+	display: flex;
+	justify-content: space-between;
+	padding: 10px 20px; /* Ajusta el espacio interno del encabezado */
+	grid-area: encabezado;
+}
+
+.hero {
+	background-color: #e7cdf9; /* Color de fondo violeta pastel*/
+	color: #ffffff; /* Color del texto blanco */
+	text-align: center;
+	padding: 1px;
+	grid-area: bienvenida;
+}
+
+.hero h2 {
+	font-size: 1.5em;
+	margin-bottom: 10px;
+}
+
+.hero p {
+	font-size: 1em;
+}
+
+.articulo {
+	max-width: 1300px;
+	margin: 20px auto;
+	background-color: #f8f4f4c8;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	grid-area: articulo;
+}
+
+.presentacion-content {
+	line-height: 1.6;
+}
+
+.tarjetas {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr); /* Crea 3 columnas de igual tamaño */
+	grid-gap: 20px; /* Espacio entre las tarjetas */
+	max-width: 1300px;
+	margin: 0 auto;
+	padding: 20px;
+}
+
+.card {
+	background-color: #f8f4f4c8;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	padding: 20px;
+	text-align: center;
+}
+
+.card h2 {
+	font-size: 1.5em;
+	margin-bottom: 10px;
+}
+
+.card p {
+	font-size: 1em;
+	color: #666;
+}
+
+.column-header-i img,
+.column-header-i h1 {
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0; /* Elimina los márgenes predeterminados para los elementos */
+	margin-right: 10px; /* Ajusta el margen entre la imagen y el título según tus preferencias */
+}
+
+.column-header-d {
+	text-align: right;
+	margin-right: 15px;
+}
+
+.logo {
+	max-width: 50px;
+	margin-right: 20px;
+}
+
+h1 {
+	margin: 0;
+	color: #fff;
+	font-size: 18px;
+}
+
+nav {
+	background-color: #e7cdf9; /* Color de la barra de navegación (violeta) */
+	color: #fff;
+	text-align: center;
+}
+
+nav a {
+	color: #fff;
+	text-decoration: none;
+	padding: 10px 20px;
+	transition: color 0.3s; /* Transición para el cambio de color al pasar el mouse */
+}
+
+nav a:hover {
+	color: #3b005b; /* Cambiar el color al pasar el mouse */
+}
+
+.medio {
+	background-color: #e7cdf9; /* Color de la barra de navegación (rosaceo) */
+	padding: 15px;
+}
+
+/* primera parte del Index con imagen y descripción */
+
+.main-content {
+	max-width: 1200px;
+	margin: 20px auto;
+	padding: 20px;
+	background-color: #f8f4f4c8;
+	border-radius: 5px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.main-content h1 {
+	font-size: 50px;
+	color: black;
+	margin-right: 10%;
+	text-align: end;
+}
+
+.main-content .column {
+	display: flex;
+	justify-content: center;
+	justify-content: center;
+	align-items: center;
+}
+
+.main-content span {
+	text-align: center;
+	flex: 1;
+}
+
+.main-content p {
+	font-size: 30px;
+	text-align: right;
+	flex: 1;
+}
+
+.main-content span img {
+	width: 90%;
+	height: auto;
+}
+
+/* parte del index del Iframe video */
+
+.main-video {
+	max-width: 1200px;
+	margin: 20px auto;
+	padding: 20px;
+	background-color: #f8f4f4c8;
+	border-radius: 5px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	text-align: center;
+}
+
+.main-video h1 {
+	font-size: 40px;
+	color: black;
+	margin: 20px;
+}
+
+/* parte de estilos del Footer */
+.pie {
+	background-color: #e7cdf9;
+	color: #fff;
+	padding: 20px;
+	display: flex;
+	justify-content: center; /* Centra los elementos horizontalmente */
+	align-items: center; /* Centra los elementos verticalmente */
+}
+
+/* Estilos para las columnas dentro del pie de página */
+.pie div {
+	margin-right: 20px; /* Espacio entre las columnas */
+}
+
+/* Última columna del pie de página no tendrá margen derecho */
+.pie div:last-child {
+	margin-right: 0;
+}
+
+.column {
+	flex: 1;
+}
+
+.contenedor-navegador-footer {
+	display: inline;
+	margin-right: 35px;
+	margin-left: 35px;
+}
+
+/* Damos los estilos a todo el carrusel que va en todos las hojas de la website */
+
+/* Estilos del carrusel, el tamaño de la imagen es de 920*349 pixeles */
+
+.carousel {
+	width: 100%;
+	max-width: 800px;
+	margin: 0 auto;
+	position: relative;
+}
+
+.carousel .images {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+}
+
+.carousel .images img {
+	width: 100%;
+	height: auto;
+	position: absolute;
+	top: 0;
+	left: 0;
+	transition: opacity 1s linear;
+	opacity: 0;
+	z-index: 1;
+}
+
+.carousel .images img.active {
+	opacity: 1;
+	z-index: 2;
+	position: relative;
+	top: 0;
+	left: 0;
+}
+
+.presentacion {
+	grid-area: presentacion;
+}
+
+/* Estilos para computadoras */
+@media screen and (min-width: 1024px) {
+	.encabezado {
+		flex-direction: row; /* Restaura la dirección de la flexbox a fila */
+		justify-content: space-between; /* Distribuye los elementos de forma equitativa */
+		text-align: left; /* Alinea el texto a la izquierda */
+	}
+
+	.column-header,
+	.column-header-d {
+		margin-top: 0; /* Restaura el margen superior a su valor predeterminado */
+	}
+
+	.tarjetas {
+		grid-template-columns: repeat(3, 1fr); /* Restaura a 3 columnas */
+		grid-gap: 20px; /* Espacio entre las tarjetas */
+	}
+
+	.card {
+		margin-bottom: 20px;
+	}
+
+	.card p {
+		margin-top: 10px;
+	}
+
+	.pie {
+		flex-direction: row; /* Restaura la dirección de la flexbox a fila */
+		justify-content: space-between; /* Distribuye los elementos de forma equitativa */
+		text-align: left; /* Alinea el texto a la izquierda */
+	}
+
+	.pie div p {
+		padding: 10px; /* Ajusta el espacio interno */
+	}
+
+	.contenedor-navegador-footer {
+		margin: 0; /* Restaura el margen a 0 */
+	}
+
+	.contenedor-navegador-footer a i {
+		font-size: 24px; /* Ajusta el tamaño de los íconos */
+		margin: 0 10px; /* Ajusta el margen izquierdo y derecho entre los íconos */
+	}
+}
+
+/* Estilos para tablets */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+	.encabezado {
+		flex-direction: column;
+		text-align: center;
+	}
+
+	.column-header,
+	.column-header-d {
+		margin-top: 10px;
+	}
+
+	.tarjetas {
+		grid-template-columns: repeat(2, 1fr);
+		grid-gap: 20px;
+	}
+
+	.card {
+		margin-bottom: 20px;
+	}
+
+	.card p {
+		margin-top: 10px;
+	}
+
+	.pie {
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
+
+	.pie div {
+		flex: 1 1 100%;
+	}
+
+	.pie div p {
+		padding: 10px;
+	}
+
+	.contenedor-navegador-footer {
+		margin: 10px 0;
+	}
+
+	.contenedor-navegador-footer a i {
+		font-size: 20px;
+		margin: 0 10px;
+	}
+}
+
+/*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/* Estilos para teléfonos móviles
+/*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+@media screen and (max-width: 767px) {
+	.encabezado {
+		flex-direction: column; /* Cambia la dirección de la flexbox a columna */
+		text-align: center; /* Centra el texto en tamaños de pantalla más pequeños */
+	}
+
+	.column-header,
+	.column-header-d {
+		margin-top: 10px; /* Ajusta el margen superior entre las columnas en tamaños de pantalla más pequeños */
+	}
+
+	.tarjetas {
+		grid-template-columns: 1fr; /* Una columna en tamaños de pantalla más pequeños */
+	}
+
+	.card {
+		margin-bottom: 20px; /* Espacio entre las tarjetas */
+	}
+
+	.card p {
+		margin-top: 10px; /* Ajustar el margen superior del párrafo dentro de las tarjetas */
+	}
+
+	.pie {
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
+
+	.pie div {
+		flex: 1 1 100%; /* Ocupa todo el ancho en pantallas pequeñas */
+	}
+
+	.pie div p {
+		padding: 10px;
+	}
+
+	.contenedor-navegador-footer {
+		margin: 10px 0; /* Ajustar el margen superior e inferior */
+	}
+
+	.contenedor-navegador-footer a i {
+		font-size: 20px; /* Ajustar el tamaño de los íconos */
+		margin: 0 10px; /* Ajustar el margen izquierdo y derecho entre los íconos */
+	}
+}

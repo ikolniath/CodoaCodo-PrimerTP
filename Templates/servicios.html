@@ -1,0 +1,96 @@
+{% extends 'index_app.html' %} {% block content %}
+<!-- Contenido de la página principal (servicios.html) -->
+<div class="main-content">
+  <h2>Nuestros servicios</h2>
+  <!-- Contenido de tarjetas de servicios -->
+  <div class="card-container">
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-header">
+          <h3>Cardiología <button class="toggle-button">+</button></h3>
+        </div>
+        <div class="card-content">
+          <p>
+            es fundamental realizar un exámen cardiológico para determinar
+            posibles problemas e instaurar un tratamiento temprano que evitaran
+            complicaciones futuras, mejorando la calidad y sobrevida de nuestras
+            mascotas.
+          </p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <h3>Dermatología <button class="toggle-button">+</button></h3>
+        </div>
+        <div class="card-content">
+          <p>
+            Hay enfermedades de la piel de nuestra mascota, que muchas veces
+            pueden ser el inicio de enfermedades sistémicas más complicadas de
+            manejar; no se deje estar, consúltenos, nuestra clínica cuenta con
+            profesionales capacitados en dermatología veterinaria para resolver
+            cualquier tipo de problemas cutáneos.
+          </p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <h3>Cirugías <button class="toggle-button">+</button></h3>
+        </div>
+        <div class="card-content">
+          <p>
+            Contamos con un equipo de profesionales capacitados tanto para un
+            correcto diagnostico de la enfermedad de su mascota, como para la
+            intervención quirúrgica y/o tratamiento especifico y su posterior
+            seguimiento.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-header">
+          <h3>
+            Diagnóstico por imágenes
+            <button class="toggle-button">+</button>
+          </h3>
+        </div>
+        <div class="card-content">
+          <p>
+            La radiología ayuda a nuestros veterinarios a estudiar el sistema
+            musculoesquelético, cardiovascular (corazón), cardiopulmonar
+            (corazón y pulmón), gastrointestinal, reproductivo y urinario.
+          </p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <h3>Laboratorio <button class="toggle-button">+</button></h3>
+        </div>
+        <div class="card-content">
+          <p>
+            En nuestra clínica contamos con especialistas que se focalizan no
+            solo en orientarlo a usted a realizar los estudios necesarios para
+            descubrir la patología de su mascota, sino en ayudarlo a encontrar
+            la mejor opción del tratamiento. Contamos con medicamentos para
+            todas las enfermedades que afectan a caninos y felinos.
+          </p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <h3>Oftalmología <button class="toggle-button">+</button></h3>
+        </div>
+        <div class="card-content">
+          <p>
+            Los tratamientos más habituales que desarrolla la disciplina de la
+            oftalmología para tratar las enfermedades oculares pueden ser
+            clasificados en tres tipos, según su naturaleza: Farmacológicos,
+            ópticos y quirúrgicos
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="{{ url_for('static', filename='js/servicios.js')}}"></script>
+</div>
+{% endblock %}

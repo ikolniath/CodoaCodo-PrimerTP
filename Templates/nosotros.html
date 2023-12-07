@@ -1,0 +1,53 @@
+{% extends 'index_app.html' %} {% block content %}
+<!-- Contenido de la página nosotros (nosotros.html) -->
+<div class="main-content-title">
+  <h2>Quienes Somos?</h2>
+</div>
+<div class="main-content-nosotros">
+  <div class="cuerpo">
+    <!-- Contenido de la primera columna -->
+  </div>
+  <div class="cuerpo">
+    <!-- Contenido de la segunda columna -->
+    <p>
+      En Veterinaria Locky, nos enorgullece ser una clínica veterinaria
+      comprometida con el bienestar de tus mascotas. Con años de experiencia en
+      el cuidado de animales, nuestro equipo de veterinarios altamente
+      calificados se dedica a proporcionar la mejor atención médica y servicios
+      de salud para tus seres peludos. Nos esforzamos por crear un ambiente
+      cálido y acogedor donde tanto tú como tus mascotas se sientan cómodos.
+      Nuestro compromiso es garantizar que cada animal reciba un cuidado
+      personalizado y de alta calidad, ayudando así a mantenerlos felices y
+      saludables a lo largo de sus vidas.
+    </p>
+  </div>
+  <div class="cuerpo">
+    <!-- Contenido de la tercera columna -->
+    <p>
+      En Veterinaria Locky, no solo somos apasionados por los animales, sino que
+      también valoramos la confianza que depositas en nosotros como tus
+      cuidadores de confianza. Nuestra clínica se dedica a brindar una atención
+      integral que abarca desde la prevención y el diagnóstico hasta el
+      tratamiento y la atención de emergencia. Tratamos a cada mascota como si
+      fuera parte de nuestra propia familia, y nuestro compromiso es mantenerlos
+      en óptimas condiciones de salud y bienestar. Gracias por elegirnos como tu
+      clínica veterinaria de confianza.
+    </p>
+  </div>
+</div>
+<!-- Sección de especialidades -->
+<div class="main-content-title">
+  <h2 class="especialistas">Alguno de nuestros especialistas</h2>
+</div>
+<!-- Sección pop-up -->
+<div class="">
+  <div
+    class="tarjetasPresentacion"
+    id="tarjetas-container"></div>
+  <div
+    id="popup-container"
+    class="popup-container"></div>
+</div>
+<!-- Scripts -->
+<script src="{{ url_for('static', filename='js/tarjetas.js')}}"></script>
+{% endblock %}

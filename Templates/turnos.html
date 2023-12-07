@@ -1,0 +1,136 @@
+{% extends 'index_app.html' %} {% block content %}
+<div class="main-content">
+	<h2>Solicitar turno</h2>
+	<div class="card-container">
+		<div
+			id="app"
+			class="container mt-5">
+			<form
+				action="{{ url_for('addAppointment') }}"
+				method="POST">
+				<div class="form-group">
+					<label for="nombre">Nombre completo:</label>
+					<!-- Esto deberia autocompletarse con los datos del usuario logueado -->
+					<input
+						v-model="formulario.nombre"
+						type="text"
+						class="form-control"
+						id="nombre"
+						name="name"
+						required />
+				</div>
+
+				<div class="form-group">
+					<label for="telefono">Teléfono de contacto:</label>
+					<input
+						v-model="formulario.telefono"
+						type="tel"
+						class="form-control"
+						id="telefono"
+						name="phone"
+						required />
+				</div>
+
+				<div class="form-group">
+					<label for="email">Correo Electrónico:</label>
+					<input
+						v-model="formulario.email"
+						type="email"
+						class="form-control"
+						id="email"
+						name="email"
+						required />
+				</div>
+
+				<div class="form-group">
+					<label for="mascota">Nombre de la mascota:</label>
+					<select
+						v-model="formulario.mascota"
+						class="form-control"
+						id="mascota"
+						name="pet"
+						required>
+						<option
+							value=""
+							disabled
+							selected>
+							Selecciona tu mascota para la atención
+						</option>
+						{% for item in mascotas %}
+						<option value="{{ item[0]}}">{{ item[1] }}</option>
+						{% endfor %}
+					</select>
+				</div>
+
+				<div class="form-group">
+					<label for="especialidad">Especialidad</label>
+					<select
+						class="form-control"
+						id="especialidad"
+						name="specialty"
+						name="especialidad">
+						<option
+							value=""
+							disabled
+							selected>
+							Seleccione una especialidad
+						</option>
+						{% for item in especialidades %}
+						<option value="{{ item[0] }}">{{ item[1] }} </option>
+						{% endfor %}
+					</select>
+				</div>
+
+				<div class="form-group">
+					<label for="medico">Médico Veterinario</label>
+					<select
+						v-model="formulario.medico"
+						class="form-control"
+						id="medico"
+						name="doctor"
+						required>
+						<option
+							value=""
+							disabled
+							selected>
+							Selecciona el veterinario
+						</option>
+						{% for veterinario in veterinarios %}
+						<option value="{{ veterinario[0] }}">
+							{{ veterinario[1] }} {{ veterinario[2] }}
+						</option>
+						{% endfor %}
+					</select>
+				</div>
+
+				<div class="form-group">
+					<label for="fecha">Fecha de preferencia:</label>
+					<input
+						v-model="formulario.fecha"
+						type="date"
+						class="form-control"
+						id="fecha"
+						name="date"
+						required />
+				</div>
+
+				<div class="form-group">
+					<label for="mensaje">Mensaje adicional:</label>
+					<textarea
+						v-model="formulario.mensaje"
+						class="form-control"
+						id="mensaje"
+						name="message"
+						rows="4"></textarea>
+				</div>
+
+				<button
+					type="submit"
+					class="btn btn-primary">
+					Solicitar Turno
+				</button>
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}

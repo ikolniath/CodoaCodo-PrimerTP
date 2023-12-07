@@ -1,0 +1,97 @@
+.main-content {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f8f4f4c8;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.main-content h2 {
+  text-align: center;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Crea 3 columnas de igual tamaño */
+  grid-gap: 20px; /* Espacio entre las tarjetas */
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.card {
+  border: 1px solid #f8f4f4c8;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  background-color: #d0a6e1;
+  color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  align-items: center;
+  cursor: pointer;
+}
+
+.card-content {
+  padding: 20px;
+  display: none;
+}
+
+.card-content p {
+  font-size: 1em;
+  text-align: justify;
+}
+
+.visible .card-content {
+  display: block;
+}
+
+.toggle-button {
+  background-color: #d0a6e1;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 5px 10px;
+  border-radius: 50%;
+}
+
+.toggle-button:hover {
+  background-color: #f3daff;
+  color: #4b0082;
+}
+
+/* Estilos para pantallas medianas (entre 768px y 1023px) */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Estilos para pantallas pequeñas (menos de 768px) */
+@media screen and (max-width: 767px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    margin-bottom: 20px;
+  }
+
+  .card-content {
+    display: none;
+  }
+
+  .toggle-button {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .card.open .card-content {
+    display: block;
+  }
+}

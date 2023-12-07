@@ -1,0 +1,149 @@
+{% extends 'index_app.html' %} {% block content %}
+<div class="main-content">
+    <h2>Registro Veterinarios</h2>
+    <div class="card-container">
+        <div class="container mt-5">
+            <form action="{{ url_for('addveterinario') }}" method="POST">
+                <div class="form-group">
+                    <label>Nombres</label>
+                    <input type="text" class="form-control mb-3" name="name">
+                </div>
+                <div class="form-group">
+                    <label>Apellido</label>
+                    <input type="text" class="form-control mb-3" name="surname">
+                </div>
+                <div class="form-group">
+                    <label>Documento</label>
+                    <input type="text" class="form-control mb-3" name="dni">
+                </div>
+                <div class="form-group">
+                    <label>Edad</label>
+                    <input type="text" class="form-control mb-3" name="ago">
+                </div>
+                <div class="form-group">
+                    <label>Sexo</label>
+                    <input type="text" class="form-control mb-3" name="genere">
+                </div>
+                <div class="form-group">
+                    <label>Titulo</label>
+                    <input type="text" class="form-control mb-3" name="title">
+                </div>
+                <div class="form-group">
+                    <label>Numero Matricula</label>
+                    <input type="text" class="form-control mb-3" name="titlenumber">
+                </div>
+                <div class="form-group">
+                    <label>Telefono</label>
+                    <input type="text" class="form-control mb-3" name="phone">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="text" class="form-control mb-3" name="email">
+                </div>
+                <div class="form-group">
+                    <label>Domicilio</label>
+                    <input type="text" class="form-control mb-3" name="adress">
+                </div>
+                <button class="btn btn-primary mb-3 mt-4" type="submit"> Guardar</button>
+            </form>
+        </div>
+    </div>
+    <div class="container">
+        <table class="table table-sm table-bordered">
+            <trhead>
+                <th scope="col">Legajo</th>
+                <th scope="col">Nombres</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Documento</th>
+                <th scope="col">Edad</th>
+                <th scope="col">Sexo</th>
+                <th scope="col">Titulo</th>
+                <th scope="col">Numero Matricula</th>
+                <th scope="col">Telefono</th>
+                <th scope="col">Email</th>
+                <th scope="col">Domicilio</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </trhead>
+            
+            <tbody>
+                {% for d in data %}
+                <tr>
+                    <td>{{d.veterinario_id}}</td>
+                    <td>{{d.name}}</td>
+                    <td>{{d.surname}}</td>
+                    <td>{{d.dni}}</td>
+                    <td>{{d.ago}}</td>
+                    <td>{{d.genere}}</td>
+                    <td>{{d.title}}</td>
+                    <td>{{d.titlenumber}}</td>
+                    <td>{{d.phone}}</td>
+                    <td>{{d.email}}</td>
+                    <td>{{d.adress}}</td>
+                    <td><button class="btn btn-primary btn-sm" id="btn-edit{{d.veterinario_id}}" data-bs-toggle="modal" data-bs-target="#modal{{d.veterinario_id}}">Editar</button></td>
+                    <td><a href="{{url_for('delete_veterinario',veterinario_id=d.veterinario_id)}}" class="btn btn-danger btn-sm">Delete</a></td>
+                </tr>
+                <!--ventana modal-->
+                <div class="modal fade" id="modal{{d.veterinario_id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">{{d.name}}</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="{{url_for('edit_veterinario', veterinario_id=d.veterinario_id)}}" method="post">
+                                <div class="col">
+                                    <label>Nombres</label>
+                                    <input type="text" class="form-control mb-3" name="name" value="{{d.name}}">
+                                </div>
+                                <div class="col">
+                                    <label>Apellido</label>
+                                    <input type="text" class="form-control mb-3" name="surname" value="{{d.surname}}">
+                                </div>
+                                <div class="col">
+                                    <label>Documento</label>
+                                    <input type="text" class="form-control mb-3" name="dni" value="{{d.dni}}">
+                                </div>
+                                <div class="col">
+                                    <label>Edad</label>
+                                    <input type="text" class="form-control mb-3" name="ago" value="{{d.ago}}">
+                                </div>
+                                <div class="col">
+                                    <label>Genero</label>
+                                    <input type="text" class="form-control mb-3" name="genere" value="{{d.genere}}">
+                                </div>
+                                <div class="col">
+                                    <label>Titulo</label>
+                                    <input type="text" class="form-control mb-3" name="title" value="{{d.title}}">
+                                </div>
+                                <div class="col">
+                                    <label>Numero Matricula</label>
+                                    <input type="text" class="form-control mb-3" name="titlenumber" value="{{d.titlenumber}}">
+                                </div>
+                                <div class="col">
+                                    <label>Telefono</label>
+                                    <input type="text" class="form-control mb-3" name="phone" value="{{d.phone}}">
+                                </div>
+                                <div class="col">
+                                    <label>Correo</label>
+                                    <input type="text" class="form-control mb-3" name="email" value="{{d.email}}">
+                                </div>
+                                <div class="col">
+                                    <label>Direccion</label>
+                                    <input type="text" class="form-control mb-3" name="adress" value="{{d.adress}}">
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    </div>
+
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

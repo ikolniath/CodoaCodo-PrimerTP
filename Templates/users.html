@@ -1,0 +1,239 @@
+{% extends 'index_app.html' %} {% block content %}
+<div class="main-content">
+	<h2>Registro usuarios</h2>
+	<div class="card-container">
+		<div
+			id="app"
+			class="container mt-5">
+			<form
+				action="{{ url_for('adduser') }}"
+				method="POST">
+				<div class="form-group">
+					<label for="name">Nombres</label>
+					<input
+						type="text"
+						id="name"
+						class="form-control"
+						name="name" />
+				</div>
+				<div class="form-group">
+					<label for="surname">Apellido</label>
+					<input
+						type="text"
+						class="form-control"
+						id="surname"
+						name="surname" />
+				</div>
+				<div class="form-group">
+					<label for="dni">Documento</label>
+					<input
+						type="text"
+						class="form-control"
+						id="dni"
+						name="dni" />
+				</div>
+				<div class="form-group">
+					<label for="email">Email</label>
+					<input
+						type="text"
+						class="form-control"
+						id="email"
+						name="email" />
+				</div>
+				<div class="form-group">
+					<label for="phone">Telefono</label>
+					<input
+						type="text"
+						class="form-control"
+						id="phone"
+						name="phone" />
+				</div>
+				<div class="form-group">
+					<label for="adress">Direccion</label>
+					<input
+						type="text"
+						class="form-control"
+						id="adress"
+						name="adress" />
+				</div>
+				<div class="form-group">
+					<label for="genero">Genero</label>
+					<select
+						class="form-select"
+						name="genere">
+						<option value="Masculino">Masculino</option>
+						<option value="Femenino">Femenino</option>
+						<option value="Neutro">Neutro</option>
+					</select>
+				</div>
+
+				<div class="form-group">
+					<label>Edad</label>
+					<select
+						class="form-select"
+						name="ago">
+						{% for i in range(1, 151) %}
+						<option value="{{ i }}">{{ i }}</option>
+						{% endfor %}
+					</select>
+				</div>
+				<button
+					class="btn btn-primary"
+					type="submit">
+					Guardar</button
+				>
+			</form>
+		</div>
+		<div class="container">
+			<table class="table table-bordered">
+				<trhead>
+					<th scope="col">Legajo</th>
+					<th scope="col">Nombres</th>
+					<th scope="col">Apellido</th>
+					<th scope="col">Documento</th>
+					<th scope="col">Edad</th>
+					<th scope="col">Sexo</th>
+					<th scope="col">Email</th>
+					<th scope="col">Telefono</th>
+					<th scope="col">Domicilio</th>
+					<th scope="col"></th>
+					<th scope="col"></th>
+				</trhead>
+				<tbody>
+					{% for d in data %}
+					<tr>
+						<td>{{d.user_id}}</td>
+						<td>{{d.name}}</td>
+						<td>{{d.surname}}</td>
+						<td>{{d.dni}}</td>
+						<td>{{d.ago}}</td>
+						<td>{{d.genere}}</td>
+						<td>{{d.email}}</td>
+						<td>{{d.phone}}</td>
+						<td>{{d.adress}}</td>
+						<td
+							><button
+								class="btn btn-primary btn-sm"
+								id="btn-edit{{d.user_id}}"
+								data-bs-toggle="modal"
+								data-bs-target="#modal{{d.user_id}}"
+								>Editar</button
+							></td
+						>
+						<td
+							><a
+								href="{{url_for('delete',user_id=d.user_id)}}"
+								class="btn btn-danger btn-sm"
+								>Delete</a
+							></td
+						>
+					</tr>
+					<!--ventana modal-->
+					<div
+						class="modal fade"
+						id="modal{{d.user_id}}"
+						tabindex="-1"
+						aria-labelledby="exampleModalLabel"
+						aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h1
+										class="modal-title fs-5"
+										id="exampleModalLabel"
+										>{{d.name}}</h1
+									>
+									<button
+										type="button"
+										class="btn-close"
+										data-bs-dismiss="modal"
+										aria-label="Close"></button>
+								</div>
+								<div class="modal-body">
+									<form
+										action="{{url_for('edit', user_id=d.user_id)}}"
+										method="post">
+										<div class="col">
+											<label>Nombres</label>
+											<input
+												type="text"
+												class="form-control mb-3"
+												name="name"
+												value="{{d.name}}" />
+										</div>
+										<div class="col">
+											<label>Apellido</label>
+											<input
+												type="text"
+												class="form-control mb-3"
+												name="surname"
+												value="{{d.surname}}" />
+										</div>
+										<div class="col">
+											<label>Documento</label>
+											<input
+												type="text"
+												class="form-control mb-3"
+												name="dni"
+												value="{{d.dni}}" />
+										</div>
+										<div class="col">
+											<label>Correo</label>
+											<input
+												type="text"
+												class="form-control mb-3"
+												name="email"
+												value="{{d.email}}" />
+										</div>
+										<div class="col">
+											<label>Telefono</label>
+											<input
+												type="text"
+												class="form-control mb-3"
+												name="phone"
+												value="{{d.phone}}" />
+										</div>
+										<div class="col">
+											<label>Direccion</label>
+											<input
+												type="text"
+												class="form-control mb-3"
+												name="adress"
+												value="{{d.adress}}" />
+										</div>
+                                        <div class="col">
+                                            <label>Edad</label>
+                                            <select class="form-control mb-3" name="ago">
+                                                {% for i in range(1, 151) %}
+                                                    <option value="{{ i }}" {% if i == d.ago %} selected {% endif %}>{{ i }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                        <div class="col">
+                                            <label>Genero</label>
+                                            <select class="form-control mb-3" name="genere">
+                                                <option value="Masculino" {% if d.genere == 'Masculino' %} selected {% endif %}>Masculino</option>
+                                                <option value="Femenino" {% if d.genere == 'Femenino' %} selected {% endif %}>Femenino</option>
+                                                <option value="Neutro" {% if d.genere == 'Neutro' %} selected {% endif %}>Neutro</option>
+                                            </select>
+                                        </div>
+										<div class="modal-footer">
+											<button
+												type="submit"
+												class="btn btn-primary"
+												>Guardar Cambios</button
+											>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

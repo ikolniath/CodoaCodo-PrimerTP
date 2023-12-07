@@ -1,0 +1,191 @@
+{% extends 'index_app.html' %} {%block content%}
+<div class="main-content">
+	<h2>Datos de registro</h2>
+	<!-- Contenido de tarjetas de servicios -->
+	<div class="card-container">
+		<!-- <div class="card-grid"> -->
+		<!-- Agrega esta sección en tu formulario HTML -->
+		<div class="container mt-5">
+			<!-- Formulario de Registro de Persona -->
+			<form
+				id="registroForm"
+				action="{{ url_for('addRegistro') }}"
+				method="POST">
+				<div class="form-group">
+					<label>Nombre:</label>
+					<input
+						type="text"
+						class="form-control"
+						name="name" />
+				</div>
+
+				<div class="form-group">
+					<label>Apellido:</label>
+					<input
+						type="text"
+						class="form-control"
+						name="surname" />
+				</div>
+
+				<div class="form-group">
+					<label>Contraseña:</label>
+					<input
+						type="text"
+						class="form-control"
+						name="password" />
+				</div>
+				<div class="form-group">
+					<label>Numero Documento:</label>
+					<input
+						type="text"
+						class="form-control"
+						name="dni" />
+				</div>
+
+				<div class="form-group">
+					<label>Corre electrónico:</label>
+					<input
+						type="text"
+						class="form-control"
+						name="email" />
+				</div>
+
+				<div class="form-group">
+					<label>Telefono:</label>
+					<input
+						type="text"
+						class="form-control"
+						name="phone" />
+				</div>
+
+				<div class="form-group">
+					<label>Dirección:</label>
+					<input
+						type="text"
+						class="form-control"
+						name="adress" />
+				</div>
+
+				<div class="form-group">
+					<label for="genero">Genero</label>
+					<select
+						class="form-select"
+						name="genere">
+						<option value="Masculino">Masculino</option>
+						<option value="Femenino">Femenino</option>
+						<option value="Neutro">Neutro</option>
+					</select>
+				</div>
+
+				<div class="form-group">
+					<label>Edad</label>
+					<select
+						class="form-select"
+						name="ago">
+						{% for i in range(1, 151) %}
+						<option value="{{ i }}">{{ i }}</option>
+						{% endfor %}
+					</select>
+				</div>
+
+				<button
+					id="btnRegistrarPersona"
+					type="submit"
+					class="btn btn-primary mt-3">
+					Registrar Persona
+				</button>
+			</form>
+
+			<!-- Botón para agregar mascota -->
+			<button
+				id="btnRegistrarMascota"
+				type="button"
+				class="btn btn-primary"
+				onclick="mostrarModalMascota()"
+				disabled>
+				Agregar Mascota
+			</button>
+
+			<!-- Modal de Registro de Mascota -->
+			<div
+				class="modal"
+				id="mascotaModal">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<!-- Contenido del modal -->
+						<div class="modal-header">
+							<h4 class="modal-title">Registro de Mascota</h4>
+						</div>
+						<div class="modal-body">
+							<!-- Formulario de Registro de Mascota -->
+							<form
+								action="{{ url_for('addRpet') }}"
+								method="POST">
+								<div class="form-group">
+									<label>Nombre de la Mascota:</label>
+									<input
+										type="text"
+										class="form-control"
+										name="pet_name" />
+								</div>
+
+								<div class="form-group">
+									<label>Raza:</label>
+									<input
+										type="text"
+										class="form-control"
+										name="pet_breed" />
+								</div>
+
+								<div class="form-group">
+									<label>Color / Pelaje:</label>
+									<input
+										type="text"
+										class="form-control"
+										name="hair_color" />
+								</div>
+
+								<div class="form-group">
+									<label>Edad</label>
+									<select
+										class="form-select"
+										name="ago">
+										{% for i in range(1, 151) %}
+										<option value="{{ i }}">{{ i }}</option>
+										{% endfor %}
+									</select>
+								</div>
+
+								<!-- Botones del formulario de mascota -->
+								<button
+									type="button"
+									class="btn btn-success"
+									onclick="guardarMascota()"
+									>Guardar</button
+								>
+								<button
+									type="button"
+									class="btn btn-secondary"
+									onclick="cerrarModal()"
+									>Cancelar</button
+								>
+								<button
+									type="button"
+									class="btn btn-primary"
+									onclick="limpiarFormulario()"
+									>Agregar más Mascotas</button
+								>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Botones del formulario de persona -->
+		</div>
+		<!-- </div> -->
+	</div>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="{{ url_for('static', filename='js/registro.js')}}"></script>
+</div>
+{% endblock %}
